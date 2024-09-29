@@ -4,13 +4,15 @@
     </x-slot:header>
     
     <div class="banner-large">
-        test
+        testing
     </div>
 
-    <div class="grid-3-3">
+    <x-product-filter> </x-product-filter>
+
+    <div class="grid-3-3 p-0 mt-4">
         @foreach($products as $product)
        
-            <a href="{{ route('product.detail', $product) }}" class="grid-item">
+            <a href="{{ route('product.detail', $product) }}" class="grid-item-product">
                 <div class="grid-item-title"> 
                     <h3>
                     {{ $product->name }} 
@@ -21,11 +23,13 @@
                         {{  \Illuminate\Support\Str::limit($product->description, 100, '...') }}
                     </div>
                     <hr>
-                    <div class="grid-item-price">
-                        {{ $product->price_format }}
-                    </div>
-                    <div class="grid-item-price">
-                        {{ $product->product_status }}
+                    <div class="d-flex justify-content-between">
+                        <div class="grid-item-price">
+                            {{ $product->price_format }}
+                        </div>
+                        <div class="grid-item-price">
+                            {{ $product->product_status }}
+                        </div>
                     </div>
                 </div>
             </a>

@@ -1,8 +1,8 @@
 <header>
-    <nav class='container'> 
+    <nav class='container-fluid shadow-sm m-0'> 
         <div class="header-left">
             <a href="/" class="logo">
-                <img src="" alt="">
+                <img src="{{url('/images/steelsong-logo.png')}}" alt="Steelsong miniatures logo">
             </a>
             <ul class="menu">
                 <li class="menu-item">

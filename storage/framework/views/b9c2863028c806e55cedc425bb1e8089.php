@@ -25,7 +25,7 @@
                 <?php endif; ?>
 
                 <!-- Page Content -->
-                <div class="row">
+                <div class="row p-0">
                     <?php echo e($slot); ?>
 
                 </div>

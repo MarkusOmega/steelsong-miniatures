@@ -25,7 +25,7 @@
                 @endif
 
                 <!-- Page Content -->
-                <div class="row">
+                <div class="row p-0">
                     {{ $slot }}
                 </div>
             </div>

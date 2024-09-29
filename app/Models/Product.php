@@ -23,7 +23,7 @@ class Product extends Model
     public function price(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => $value / 100,
+            get: fn ($value) =>  $value / 100,
             set: fn ($value) => $value * 100,
         );
     }
