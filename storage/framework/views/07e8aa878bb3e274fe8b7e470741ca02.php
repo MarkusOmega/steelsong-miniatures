@@ -19,14 +19,14 @@
 
     <?php if (isset($component)) { $__componentOriginal31f45136a2389d31610eb2c1a32be5d9 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal31f45136a2389d31610eb2c1a32be5d9 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.product-filter','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.product-filter','data' => ['categories' => $categories,'chosenCategory' => $category]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('product-filter'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes([]); ?>  <?php echo $__env->renderComponent(); ?>
+<?php $component->withAttributes(['categories' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($categories),'chosenCategory' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($category)]); ?>  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal31f45136a2389d31610eb2c1a32be5d9)): ?>
 <?php $attributes = $__attributesOriginal31f45136a2389d31610eb2c1a32be5d9; ?>
@@ -38,7 +38,7 @@
 <?php endif; ?>
 
     <div class="grid-3-3 p-0 mt-4">
-        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
        
             <a href="<?php echo e(route('product.detail', $product)); ?>" class="grid-item-product">
                 <div class="grid-item-title"> 
@@ -64,7 +64,13 @@
                     </div>
                 </div>
             </a>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+        <div>
+            <?php echo e(trans('no products found')); ?>
+
+        </div>
+        
+        <?php endif; ?>
     </div>
     <div>
         <?php echo e($products->onEachSide(5)->links()); ?>

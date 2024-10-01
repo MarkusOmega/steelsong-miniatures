@@ -24,7 +24,6 @@ Route::prefix('admin')->middleware('is-admin')->group(function () {
     // Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
 });
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -32,7 +31,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
 
 //SHOP
 Route::get('/shop', [ProductController::class , 'frontendIndex'])->name('product.frontendIndex');

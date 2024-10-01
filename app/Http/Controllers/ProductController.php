@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
     public function index()
-    {
+    {   
         $products = Product::Paginate(15);
 
         return view('admin.products.index', compact('products'));
@@ -93,10 +95,18 @@ class ProductController extends Controller
     /**
     * Display products on Frontend
     */
-    public function frontendIndex()
+    public function frontendIndex(Request $request)
     {
-        $products = Product::Paginate(15);
+        $products = Product::when(!empty($request->input('category')), function($q) use($request){
+            $q->whereHas('categories', function($query) use($request) {
+                $query->where('name', $request->input('category'));
+            });
+        } )->Paginate(15);
 
-        return view('products.index', compact('products'));
+        $categories = Category::all();
+
+        $category = !empty($request->input('category')) ? $request->input('category') : '';
+
+        return view('products.index', compact('products', 'categories', 'category'));
     }
 }

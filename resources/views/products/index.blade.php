@@ -7,10 +7,10 @@
         testing
     </div>
 
-    <x-product-filter> </x-product-filter>
+    <x-product-filter :categories="$categories" :chosenCategory="$category"> </x-product-filter>
 
     <div class="grid-3-3 p-0 mt-4">
-        @foreach($products as $product)
+        @forelse($products as $product)
        
             <a href="{{ route('product.detail', $product) }}" class="grid-item-product">
                 <div class="grid-item-title"> 
@@ -33,7 +33,12 @@
                     </div>
                 </div>
             </a>
-        @endforeach
+        @empty
+        <div>
+            {{ trans('no products found') }}
+        </div>
+        
+        @endforelse
     </div>
     <div>
         {{ $products->onEachSide(5)->links() }}
