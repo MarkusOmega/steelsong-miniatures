@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LoreController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,12 +18,11 @@ Route::prefix('admin')->middleware('is-admin')->group(function () {
     // PRODUCTS
     Route::resource('products', ProductController::class);
 
-    // Route::get('/products', [ProductController::class, 'adminIndex'])->name('admin.product.index');
-    // Route::get('/products/create', [ProductController::class, 'create'])->name('admin.product.create');
-    // Route::post('/products/', [ProductController::class, 'store'])->name('admin.product.store');
-    // Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.product.edit');
-    // Route::put('/products/{product}', [ProductController::class, 'update'])->name('admin.product.update');
-    // Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
+    // CATEGORIES
+    Route::resource('categories', CategoryController::class);
+
+    // LORE
+    Route::resource('lores', LoreController::class);
 });
 
 Route::middleware('auth')->group(function () {

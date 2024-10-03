@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
     public function index()
-    {   
+    {
         $products = Product::Paginate(15);
 
         return view('admin.products.index', compact('products'));
@@ -22,20 +22,20 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        return view('admin..create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(ProductRequest $request)
-    {   
+    {
         $request->validated();
 
         if($request->file('image')->isValid()) {
             $filePath = $request->file('image')->store('uploads' , 'public');
         };
-       
+
         $requestData = $request->all();
         $requestData['image'] = $filePath;
 
@@ -71,7 +71,7 @@ class ProductController extends Controller
         if($request->file('image')->isValid()) {
             $filePath = $request->file('image')->store('uploads', 'public');
         };
-       
+
         $requestData = $request->all();
         $requestData['image'] = $filePath;
 

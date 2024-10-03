@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Number;
 
 class Product extends Model
@@ -36,19 +37,19 @@ class Product extends Model
         );
     }
 
-    public function getPriceFormatAttribute()
-    {
-       $priceFormat =  Number::Currency($this->price,'EUR' , 'nl');
-
-       return $priceFormat;
-    }
-
-    public function getDiscountFormatAttribute()
-    {
-       $discountFormat =  Number::Currency($this->discount,'EUR' , 'nl');
-
-       return $discountFormat;
-    }
+//    public function getPriceFormatAttribute()
+//    {
+//       $priceFormat =  Number::Currency($this->price,'EUR' , 'nl');
+//
+//       return $priceFormat;
+//    }
+//
+//    public function getDiscountFormatAttribute()
+//    {
+//       $discountFormat =  Number::Currency($this->discount,'EUR' , 'nl');
+//
+//       return $discountFormat;
+//    }
 
     public function getProductStatusAttribute()
     {
@@ -72,5 +73,10 @@ class Product extends Model
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function lore(): HasMany
+    {
+        return $this->hasMany(Lore::class);
     }
 }
