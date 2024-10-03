@@ -19,3 +19,6 @@ yarn-error.log
 /.idea
 /.vscode
 /.docker
+/storage/logs
+supervisord.log
+docker-compose.yml
