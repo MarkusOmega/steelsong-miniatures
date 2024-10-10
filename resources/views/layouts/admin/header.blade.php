@@ -7,19 +7,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('products.index') }}">Products</a>
+
+                <a class="nav-link {{(\Route::current()->getName() == 'products.index') ? 'active' : '' }}" aria-current="page" href="{{ route('products.index') }}">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Lore</a>
+                <a class="nav-link {{(\Route::current()->getName() == 'categories.index') ? 'active' : '' }}" href="{{ route('categories.index') }}">Categories</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Settings</a>
+                <a class="nav-link {{(\Route::current()->getName() == 'lore.index') ? 'active' : '' }}" href="{{ route('lores.index') }}">Lore</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Users</a>
+                <a class="nav-link {{(\Route::current()->getName() == 'settings.index') ? 'active' : '' }}" href="">Settings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Orders</a>
+                <a class="nav-link {{(\Route::current()->getName() == 'users.index') ? 'active' : '' }}" href="">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{(\Route::current()->getName() == 'orders.index') ? 'active' : '' }}" href="">Orders</a>
             </li>
         </ul>
         <form method="POST" action="{{ route('logout') }}">

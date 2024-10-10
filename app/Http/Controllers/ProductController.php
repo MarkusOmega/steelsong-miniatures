@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
     public function index()
-    {   
+    {
         $products = Product::Paginate(15);
 
         return view('admin.products.index', compact('products'));
@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        return view('admin..create');
     }
 
     /**
