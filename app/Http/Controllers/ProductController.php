@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -30,19 +33,34 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {   
-        $request->validated();
+        try{
+            DB::beginTransaction();
 
-        if($request->file('image')->isValid()) {
-            $filePath = $request->file('image')->store('uploads' , 'public');
-        };
-       
-        $requestData = $request->all();
-        $requestData['image'] = $filePath;
+            $request->validated();         
+            $requestData = $request->all();
+                
+            $product = Product::create($requestData);
+            
+            if($request->file('image')->isValid()) {
+                $product->addMedia( $request->file('image'))
+                ->toMediaCollection();
+            };
 
-        Product::create($requestData);
+            DB::commit();
 
-        return redirect()->route('products.index')
-        ->with('success','Product created successfully.');
+            return redirect()->route('products.index')
+            ->with('success','Product created successfully.');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            Log::error(
+                'Product could not be saved', 
+                [
+                    'error' => $e, 
+                ]
+            );
+        }
     }
 
     /**
@@ -66,19 +84,33 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        $request->validated();
+        try {
+            DB::beginTransaction();
+            
+            $request->validated();
+            $requestData = $request->all();
+    
+            $product->update($requestData);
+    
+            if($request->file('image')->isValid()) {
+                $product->addMedia($request->file('image'))
+                ->toMediaCollection();
+            }
 
-        if($request->file('image')->isValid()) {
-            $filePath = $request->file('image')->store('uploads', 'public');
-        };
-       
-        $requestData = $request->all();
-        $requestData['image'] = $filePath;
+            DB::commit();
+    
+            return redirect()->route('products.index')
+            ->with('success','Product updates successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
 
-        $product->update($requestData);
-
-        return redirect()->route('products.index')
-        ->with('success','Product updates successfully.');
+            Log::error(
+                'Product could not be saved', 
+                [
+                    'error' => $e, 
+                ]
+            );
+        }
     }
 
     /**

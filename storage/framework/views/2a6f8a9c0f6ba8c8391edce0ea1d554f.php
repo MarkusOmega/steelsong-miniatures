@@ -8,16 +8,49 @@
 <?php $attributes = $attributes->except(\App\View\Components\MainLayout::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-     <?php $__env->slot('header', null, []); ?> 
-    <?php echo e($product->name); ?>
+    <!-- <div class="banner-large">
+        <?php if(!empty($product->image)): ?>
+            <img src="<?php echo e(Storage::disk('public')->url($product->image)); ?>" alt="Uploaded File">
+        <?php endif; ?>
+    </div> -->
 
-     <?php $__env->endSlot(); ?>
-    
-    <div class="banner-large">
+    <div class="row mt-4">
+        <div class="col-6">
+            <div class="image">
+            <?php if($product->hasMedia()): ?>
+                <img src="<?php echo e($product->getFirstMedia()->getUrl()); ?>" alt="product image">
+            
+            <?php else: ?>
+            <img src="<?php echo e(url('/images/image-placeholder.png')); ?>" alt="product placeholder">
+            <?php endif; ?>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="title">
+                <h1><?php echo e($product->name); ?></h1>
+            </div>
+            <div class="tags">
+                <?php $__currentLoopData = $product->types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $productType): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <span class="tag bg-dark rounded-circle p-2 text-white"><?php echo e($productType->name); ?></span>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+            <div class="description mt-4">
+                <p><?php echo e($product->description); ?> </p>
+            </div>
+            <div class="price mt-2">
+                <strong><?php echo e($product->PriceFormat); ?></strong>
+            </div>
+            <div class="choices">
 
-    <?php if(!empty($product->image)): ?>
-        <img src="<?php echo e(Storage::disk('public')->url($product->image)); ?>" alt="Uploaded File">
-    <?php endif; ?>
+            </div>
+            <div>
+                <?php echo e($product->ProductStatus); ?>
+
+            </div>
+            <div class="submit mt-2">
+                <button type="submit">order</button>
+            </div>
+        </div>
     </div>
 
  <?php echo $__env->renderComponent(); ?>
