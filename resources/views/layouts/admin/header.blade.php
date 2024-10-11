@@ -14,7 +14,10 @@
                 <a class="nav-link {{(\Route::current()->getName() == 'categories.index') ? 'active' : '' }}" href="{{ route('categories.index') }}">Categories</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{(\Route::current()->getName() == 'Content.index') ? 'active' : '' }}" href="{{ route('Contents.index') }}">Content</a>
+                <a class="nav-link {{(\Route::current()->getName() == 'content.index') ? 'active' : '' }}" href="{{ route('contents.index') }}">Content</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{(\Route::current()->getName() == 'news.index') ? 'active' : '' }}" href="{{ route('news.index') }}">News</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{(\Route::current()->getName() == 'settings.index') ? 'active' : '' }}" href="">Settings</a>

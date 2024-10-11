@@ -14,7 +14,10 @@
                 <a class="nav-link <?php echo e((\Route::current()->getName() == 'categories.index') ? 'active' : ''); ?>" href="<?php echo e(route('categories.index')); ?>">Categories</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo e((\Route::current()->getName() == 'Content.index') ? 'active' : ''); ?>" href="<?php echo e(route('Contents.index')); ?>">Content</a>
+                <a class="nav-link <?php echo e((\Route::current()->getName() == 'content.index') ? 'active' : ''); ?>" href="<?php echo e(route('contents.index')); ?>">Content</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo e((\Route::current()->getName() == 'news.index') ? 'active' : ''); ?>" href="<?php echo e(route('news.index')); ?>">News</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo e((\Route::current()->getName() == 'settings.index') ? 'active' : ''); ?>" href="">Settings</a>

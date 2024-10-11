@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,10 @@ Route::prefix('admin')->middleware('is-admin')->group(function () {
     Route::resource('categories', CategoryController::class);
 
     // Content
-    Route::resource('Contents', ContentController::class);
+    Route::resource('contents', ContentController::class);
+
+    // News
+    Route::resource('news',NewsController::class);
 });
 
 Route::middleware('auth')->group(function () {

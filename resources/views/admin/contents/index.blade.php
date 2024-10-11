@@ -11,7 +11,7 @@
 
             <div class="d-flex justify-content-between">
                 <h2>{{ trans('general.Contents') }}</h2>
-                <a href="{{ route('Contents.create') }}" class="btn btn-primary"> Content item aanmaken</a>
+                <a href="{{ route('contents.create') }}" class="btn btn-primary"> Content item aanmaken</a>
             </div>
 
         </div>
@@ -28,15 +28,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($Contents as $Content)
+                    @foreach($Contents as $content)
                         <tr style="border-bottom:1px solid black; height: 50px">
-                            <td>{{ $Content->id }} </td>
-                            <td>{{ $Content->name }} </td>
+                            <td>{{ $content->id }} </td>
+                            <td>{{ $content->name }} </td>
                             <td style="width:150px">
-                                <form action="{{ route('products.destroy', $Content) }}" method="post">
+                                <form action="{{ route('contents.destroy', $content) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('products.edit', $Content) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('contents.edit', $content) }}" class="btn btn-primary">Edit</a>
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
                             </td>
