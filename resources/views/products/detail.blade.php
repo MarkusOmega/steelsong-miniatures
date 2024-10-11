@@ -20,8 +20,8 @@
                 <h1>{{ $product->name }}</h1>
             </div>
             <div class="tags">
-                @foreach ($product->types as $productType )
-                    <span class="tag bg-dark rounded-circle p-2 text-white">{{ $productType->name }}</span>
+                @foreach ($product->categories as $category )
+                    <span class="tag bg-dark rounded-circle p-2 text-white">{{ $category->name }}</span>
                 @endforeach
             </div>
             <div class="description mt-4">

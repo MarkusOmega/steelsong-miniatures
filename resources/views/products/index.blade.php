@@ -39,7 +39,7 @@
         
         @endforelse
     </div>
-    <div>
+    <div class="p-0">
         {{ $products->onEachSide(5)->links() }}
     </div>
 </x-main-layout>

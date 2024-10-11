@@ -19,7 +19,6 @@
             <div class="image">
             <?php if($product->hasMedia()): ?>
                 <img src="<?php echo e($product->getFirstMedia()->getUrl()); ?>" alt="product image">
-            
             <?php else: ?>
             <img src="<?php echo e(url('/images/image-placeholder.png')); ?>" alt="product placeholder">
             <?php endif; ?>
@@ -30,8 +29,8 @@
                 <h1><?php echo e($product->name); ?></h1>
             </div>
             <div class="tags">
-                <?php $__currentLoopData = $product->types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $productType): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <span class="tag bg-dark rounded-circle p-2 text-white"><?php echo e($productType->name); ?></span>
+                <?php $__currentLoopData = $product->categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <span class="tag bg-dark rounded-circle p-2 text-white"><?php echo e($category->name); ?></span>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
             <div class="description mt-4">

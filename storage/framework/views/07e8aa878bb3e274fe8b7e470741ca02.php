@@ -70,7 +70,7 @@
         
         <?php endif; ?>
     </div>
-    <div>
+    <div class="p-0">
         <?php echo e($products->onEachSide(5)->links()); ?>
 
     </div>
