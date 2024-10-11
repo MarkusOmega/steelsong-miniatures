@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -139,23 +140,25 @@ class ProductController extends Controller
 
         $category = !empty($request->input('category')) ? $request->input('category') : '';
 
-        return view('products.index', compact('products', 'categories', 'category'));
+        $banner = Setting::where('type', 'shop-banner')->first();
+
+        return view('products.index', compact('products', 'categories', 'category', 'banner'));
     }
 
-    private function attachMedia($request, $product)
+    private function attachMedia($request, $model)
     {
         if(!empty($request->file('image')) && $request->file('image')->isValid()) {
-            $product->addMedia($request->file('image'))
+            $model->addMedia($request->file('image'))
             ->toMediaCollection();
         }
     }
 
-    private function attachCategories($request, $product)
+    private function attachCategories($request, $model)
     {
         if(!empty($request->category)) {
-            $product->categories()->detach();
+            $model->categories()->detach();
 
-            $product->categories()->attach($request->category);
+            $model->categories()->attach($request->category);
         }
     }
 }

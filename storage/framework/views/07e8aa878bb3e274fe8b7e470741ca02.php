@@ -13,9 +13,12 @@
 
      <?php $__env->endSlot(); ?>
     
-    <div class="banner-large">
-        testing
-    </div>
+    <?php if(!empty($banner)): ?>
+        <div class="banner-large">
+            <?php echo e($banner->name); ?>
+
+        </div>
+    <?php endif; ?>
 
     <?php if (isset($component)) { $__componentOriginal31f45136a2389d31610eb2c1a32be5d9 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal31f45136a2389d31610eb2c1a32be5d9 = $attributes; } ?>

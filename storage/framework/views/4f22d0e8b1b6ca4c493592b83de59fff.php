@@ -83,7 +83,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
 
-    <?php if($product->hasMedia()): ?>
+    <?php if(!empty($product) && $product->hasMedia()): ?>
         <div class="image-preview">
             <img src="<?php echo e($product->getFirstMedia()->getUrl()); ?>" alt="product image">
         </div>
@@ -95,7 +95,7 @@ unset($__errorArgs, $__bag); ?>
     <select name="category" id="category">
         <option value="" disabled selected="selected"> Choose an option </option>
         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <option value="<?php echo e($category->id); ?>" <?php echo e((!empty($product->categories->first()) && $product->categories->first()->id == $category->id) ? 'selected' : ''); ?>> <?php echo e($category->name); ?> </option>
+        <option value="<?php echo e($category->id); ?>" <?php echo e((!empty($product) && !empty($product->categories->first()) && $product->categories->first()->id == $category->id) ? 'selected' : ''); ?>> <?php echo e($category->name); ?> </option>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </select>
 </div>

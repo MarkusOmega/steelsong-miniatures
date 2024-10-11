@@ -78,9 +78,9 @@ class Product extends Model implements HasMedia
         return $productStatus;
     }
 
-    public function types(): BelongsToMany
+    public function types(): HasMany
     {
-        return $this->belongsToMany(ProductType::class);
+        return $this->hasMany(ProductType::class);
     }
 
     public function categories(): BelongsToMany

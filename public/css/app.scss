@@ -20,12 +20,6 @@ h1, h2 ,h3, h4, h5{
     font-style: normal;
 }
 
-body{
-    margin:0;
-    margin: auto;
-
-}
-
 header {
     display: flex;
     
@@ -34,6 +28,7 @@ header {
     
 }
 
+// NAV
 nav.container, nav.container-fluid{
     margin: 0 20px 0 20px;
     display: flex;
@@ -84,7 +79,6 @@ nav.container, nav.container-fluid{
         margin: 50px auto;
         width: 1200px;
         height: 100%;
-
     }
 }
 
@@ -172,16 +166,6 @@ footer{
     }
 }
 
-.pagination{
-    display:flex;
-    list-style-type: none;
-    padding-left:0px;
-    font-size: 1.5rem;
-    li{
-        padding: 5px;
-    }
-}
-
 // BACKGROUNDS --------------------------------------------
 .background{
     &-full{
@@ -191,53 +175,6 @@ footer{
         background: white;
         border-radius: 5px;
     }
-}
-
-// PADDING --------------------------------------------
-.padding{
-    &-10{
-        padding: 10px;
-    }
-    &-20{
-        padding: 20px;
-    }
-    &-30{
-        padding: 30px;
-    }
-    &-40{
-        padding: 40px;
-    }
-}
-
-// FIELDS --------------------------------------------
-.form-field{
-    &-label{
-        display: inline-block;
-        min-width: 30%;
-    }
-    &-input{
-        height: 30px;
-        min-width: 60%;
-        margin-bottom: 20px;
-    }
-}
-
-// BUTTONS --------------------------------------------
-.form-button{
-    display: inline-flex;
-    height: 40px;
-    min-width: 200px;
-    font-size: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    background: $primary-color;
-    border: 0px;
-}
-
-// LINKS --------------------------------------------
-.form-link{
-    text-decoration: none;
-    color: grey;
 }
 
 // LOGIN PAGE --------------------------------------------

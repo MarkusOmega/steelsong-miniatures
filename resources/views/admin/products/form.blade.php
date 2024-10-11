@@ -41,7 +41,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
 
-    @if($product->hasMedia())
+    @if(!empty($product) && $product->hasMedia())
         <div class="image-preview">
             <img src="{{ $product->getFirstMedia()->getUrl() }}" alt="product image">
         </div>
@@ -53,7 +53,7 @@
     <select name="category" id="category">
         <option value="" disabled selected="selected"> Choose an option </option>
         @foreach ($categories as $category)
-        <option value="{{ $category->id }}" {{ (!empty($product->categories->first()) && $product->categories->first()->id == $category->id) ? 'selected' : '' }}> {{ $category->name }} </option>
+        <option value="{{ $category->id }}" {{ (!empty($product) && !empty($product->categories->first()) && $product->categories->first()->id == $category->id) ? 'selected' : '' }}> {{ $category->name }} </option>
         @endforeach
     </select>
 </div>

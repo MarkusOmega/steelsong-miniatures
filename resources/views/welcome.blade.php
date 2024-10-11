@@ -1,7 +1,10 @@
 <x-main-layout>
-    <div class="banner-large">
-        testing
-    </div>
+    @if(!empty($banner))
+        <div class="banner-large">
+            {{ $banner->name }}
+        </div>
+    @endif
+    
     <div class="grid-1-2 p-0 mt-4">
         <x-grid-item> </x-grid-item>
         <x-grid-item> </x-grid-item>

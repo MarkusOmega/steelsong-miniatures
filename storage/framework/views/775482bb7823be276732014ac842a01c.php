@@ -8,9 +8,13 @@
 <?php $attributes = $attributes->except(\App\View\Components\MainLayout::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-    <div class="banner-large">
-        testing
-    </div>
+    <?php if(!empty($banner)): ?>
+        <div class="banner-large">
+            <?php echo e($banner->name); ?>
+
+        </div>
+    <?php endif; ?>
+    
     <div class="grid-1-2 p-0 mt-4">
         <?php if (isset($component)) { $__componentOriginalef7525bc9d749553655055783c107f70 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalef7525bc9d749553655055783c107f70 = $attributes; } ?>

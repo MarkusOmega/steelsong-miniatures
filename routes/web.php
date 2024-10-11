@@ -4,11 +4,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [PageController::class, 'home'])
+->name('home');
 
 Route::prefix('admin')->middleware('is-admin')->group(function () {
     Route::get('/', function () {
@@ -33,10 +33,10 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-//SHOP
+//PRODUCTS FRONTEND
 Route::get('/shop', [ProductController::class , 'frontendIndex'])->name('product.frontendIndex');
-
-//PRODUCTS
 Route::get('/shop/product/{product}', [ProductController::class , 'show'])->name('product.detail');
 
-//Content
+//CONTENT FRONTEND
+Route::get('/content', [ContentController::class, 'frontendIndex'])->name('content.frontendIndex');
+Route::get('/content/{content}', [ContentController::class, 'show'])->name('content.detail');
