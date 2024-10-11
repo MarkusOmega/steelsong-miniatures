@@ -12,6 +12,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Support\Str;
 
 class Product extends Model implements HasMedia
 {
@@ -42,19 +43,26 @@ class Product extends Model implements HasMedia
         );
     }
 
-//    public function getPriceFormatAttribute()
-//    {
-//       $priceFormat =  Number::Currency($this->price,'EUR' , 'nl');
-//
-//       return $priceFormat;
-//    }
-//
-//    public function getDiscountFormatAttribute()
-//    {
-//       $discountFormat =  Number::Currency($this->discount,'EUR' , 'nl');
-//
-//       return $discountFormat;
-//    }
+    public function getPriceFormatAttribute()
+    {
+        $priceFormat =  Number::Currency($this->price,'EUR' , 'nl');
+
+        return $priceFormat;
+    }
+
+    public function getDiscountFormatAttribute()
+    {
+        $discountFormat =  Number::Currency($this->discount,'EUR' , 'nl');
+
+        return $discountFormat;
+    }
+
+    public function getShortDescriptionAttribute()
+    {
+        $shortDescription =  STR::limit($this->description, 100, '...');
+
+        return $shortDescription;
+    }
 
     public function getProductStatusAttribute()
     {
@@ -80,9 +88,9 @@ class Product extends Model implements HasMedia
         return $this->belongsToMany(Category::class);
     }
 
-    public function lore(): HasMany
+    public function Content(): HasMany
     {
-        return $this->hasMany(Lore::class);
+        return $this->hasMany(Content::class);
     }
 
     public function registerMediaConversions(?Media $media = null): void

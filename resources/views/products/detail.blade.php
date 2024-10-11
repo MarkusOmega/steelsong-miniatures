@@ -10,7 +10,6 @@
             <div class="image">
             @if($product->hasMedia())
                 <img src="{{ $product->getFirstMedia()->getUrl() }}" alt="product image">
-            
             @else
             <img src="{{url('/images/image-placeholder.png')}}" alt="product placeholder">
             @endif

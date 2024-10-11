@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\LoreController;
+use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,8 +21,8 @@ Route::prefix('admin')->middleware('is-admin')->group(function () {
     // CATEGORIES
     Route::resource('categories', CategoryController::class);
 
-    // LORE
-    Route::resource('lores', LoreController::class);
+    // Content
+    Route::resource('Contents', ContentController::class);
 });
 
 Route::middleware('auth')->group(function () {
@@ -39,4 +39,4 @@ Route::get('/shop', [ProductController::class , 'frontendIndex'])->name('product
 //PRODUCTS
 Route::get('/shop/product/{product}', [ProductController::class , 'show'])->name('product.detail');
 
-//LORE
+//Content

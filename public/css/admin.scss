@@ -4,4 +4,11 @@
     }
 }
 
-
+.image-preview{
+    max-width: 250px;
+    display:flex;
+    margin-top: 12px;
+    img{
+        width:100%;
+    }
+}

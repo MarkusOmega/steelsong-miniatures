@@ -45,9 +45,9 @@ class RolesAndPermissionsSeeder extends Seeder
             'products_update',
             'products_delete',
             
-            'lore_create',
-            'lore_update',
-            'lore_delete',
+            'Content_create',
+            'Content_update',
+            'Content_delete',
         ];
 
         foreach($pemissions as $permission) {
@@ -82,9 +82,9 @@ class RolesAndPermissionsSeeder extends Seeder
             'products_update',
             'products_delete',
             
-            'lore_create',
-            'lore_update',
-            'lore_delete',
+            'Content_create',
+            'Content_update',
+            'Content_delete',
         ]);
 
         $role = Role::create(['name' => 'customer'])

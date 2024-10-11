@@ -7,19 +7,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="<?php echo e(route('products.index')); ?>">Products</a>
+
+                <a class="nav-link <?php echo e((\Route::current()->getName() == 'products.index') ? 'active' : ''); ?>" aria-current="page" href="<?php echo e(route('products.index')); ?>">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Lore</a>
+                <a class="nav-link <?php echo e((\Route::current()->getName() == 'categories.index') ? 'active' : ''); ?>" href="<?php echo e(route('categories.index')); ?>">Categories</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Settings</a>
+                <a class="nav-link <?php echo e((\Route::current()->getName() == 'Content.index') ? 'active' : ''); ?>" href="<?php echo e(route('Contents.index')); ?>">Content</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Users</a>
+                <a class="nav-link <?php echo e((\Route::current()->getName() == 'settings.index') ? 'active' : ''); ?>" href="">Settings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Orders</a>
+                <a class="nav-link <?php echo e((\Route::current()->getName() == 'users.index') ? 'active' : ''); ?>" href="">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo e((\Route::current()->getName() == 'orders.index') ? 'active' : ''); ?>" href="">Orders</a>
             </li>
         </ul>
         <form method="POST" action="<?php echo e(route('logout')); ?>">
@@ -33,4 +37,5 @@
             </form>
         </div>
     </div>
-</nav><?php /**PATH C:\DEV\steelsong-miniatures\resources\views/layouts/admin/header.blade.php ENDPATH**/ ?>
+</nav>
+<?php /**PATH C:\DEV\steelsong-miniatures\resources\views/layouts/admin/header.blade.php ENDPATH**/ ?>

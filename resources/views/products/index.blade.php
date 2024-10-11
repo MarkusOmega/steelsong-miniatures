@@ -11,7 +11,6 @@
 
     <div class="grid-3-3 p-0 mt-4">
         @forelse($products as $product)
-       
             <a href="{{ route('product.detail', $product) }}" class="grid-item-product">
                 <div class="grid-item-title"> 
                     <h3>
@@ -20,12 +19,12 @@
                 </div>
                 <div class="grid-item-content"> 
                     <div class="grid-item-description">
-                        {{  \Illuminate\Support\Str::limit($product->description, 100, '...') }}
+                        {{ $product->ShortDescription }}
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between">
                         <div class="grid-item-price">
-                            {{ $product->price_format }}
+                            <strong>{{ $product->PriceFormat }}</strong>
                         </div>
                         <div class="grid-item-price">
                             {{ $product->product_status }}

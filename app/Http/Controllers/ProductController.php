@@ -15,7 +15,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::Paginate(15);
+        $products = Product::with('categories')->Paginate(15);
 
         return view('admin.products.index', compact('products'));
     }
@@ -25,7 +25,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin..create');
+        $categories = Category::all();
+
+        return view('admin.products.create', ['categories' => $categories]);
     }
 
     /**
@@ -41,10 +43,9 @@ class ProductController extends Controller
                 
             $product = Product::create($requestData);
             
-            if($request->file('image')->isValid()) {
-                $product->addMedia( $request->file('image'))
-                ->toMediaCollection();
-            };
+            $this->attachMedia($request, $product);
+
+            $this->attachCategories($request, $product);
 
             DB::commit();
 
@@ -76,7 +77,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit', ['product' => $product]);
+        $categories = Category::all();
+
+        return view('admin.products.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -92,10 +95,9 @@ class ProductController extends Controller
     
             $product->update($requestData);
     
-            if($request->file('image')->isValid()) {
-                $product->addMedia($request->file('image'))
-                ->toMediaCollection();
-            }
+            $this->attachMedia($request, $product);
+
+            $this->attachCategories($request, $product);
 
             DB::commit();
     
@@ -140,5 +142,23 @@ class ProductController extends Controller
         $category = !empty($request->input('category')) ? $request->input('category') : '';
 
         return view('products.index', compact('products', 'categories', 'category'));
+    }
+
+
+    private function attachMedia($request, $product)
+    {
+        if(!empty($request->file('image')) && $request->file('image')->isValid()) {
+            $product->addMedia($request->file('image'))
+            ->toMediaCollection();
+        }
+    }
+
+    private function attachCategories($request, $product)
+    {
+        if(!empty($request->category)) {
+            $product->categories()->detach();
+
+            $product->categories()->attach($request->category);
+        }
     }
 }

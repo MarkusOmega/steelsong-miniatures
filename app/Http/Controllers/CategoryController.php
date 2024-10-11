@@ -29,9 +29,9 @@ class CategoryController extends Controller
             ->with('success','Category created successfully.');
     }
 
-    public function edit()
+    public function edit(Category $category)
     {
-        return view('admin.categories.edit');
+        return view('admin.categories.edit', ['category' => $category]);
     }
 
     public function update(CategoryRequest $request, $category)

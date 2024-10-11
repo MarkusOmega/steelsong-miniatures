@@ -40,6 +40,22 @@
     @error('image')
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
+
+    @if($product->hasMedia())
+        <div class="image-preview">
+            <img src="{{ $product->getFirstMedia()->getUrl() }}" alt="product image">
+        </div>
+    @endif
+</div>
+
+<div class="mb-3">
+    <label class="form-label" for="category">Category:</label>
+    <select name="category" id="category">
+        <option value="" disabled selected="selected"> Choose an option </option>
+        @foreach ($categories as $category)
+        <option value="{{ $category->id }}" {{ (!empty($product->categories->first()) && $product->categories->first()->id == $category->id) ? 'selected' : '' }}> {{ $category->name }} </option>
+        @endforeach
+    </select>
 </div>
 
 <div class="buttons">

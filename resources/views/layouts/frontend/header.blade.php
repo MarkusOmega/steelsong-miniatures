@@ -9,7 +9,7 @@
                     <a class="menu-link" href="{{ route('product.frontendIndex') }}">Shop</a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="">Lore</a>
+                    <a class="menu-link" href="">Content</a>
                 </li>
                 <li class="menu-item">
                     <a class="menu-link" href="">News</a>

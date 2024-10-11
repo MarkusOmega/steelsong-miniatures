@@ -14,7 +14,7 @@
                 <a class="nav-link {{(\Route::current()->getName() == 'categories.index') ? 'active' : '' }}" href="{{ route('categories.index') }}">Categories</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{(\Route::current()->getName() == 'lore.index') ? 'active' : '' }}" href="{{ route('lores.index') }}">Lore</a>
+                <a class="nav-link {{(\Route::current()->getName() == 'Content.index') ? 'active' : '' }}" href="{{ route('Contents.index') }}">Content</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{(\Route::current()->getName() == 'settings.index') ? 'active' : '' }}" href="">Settings</a>

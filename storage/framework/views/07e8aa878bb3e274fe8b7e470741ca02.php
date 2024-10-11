@@ -39,7 +39,6 @@
 
     <div class="grid-3-3 p-0 mt-4">
         <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-       
             <a href="<?php echo e(route('product.detail', $product)); ?>" class="grid-item-product">
                 <div class="grid-item-title"> 
                     <h3>
@@ -48,14 +47,13 @@
                 </div>
                 <div class="grid-item-content"> 
                     <div class="grid-item-description">
-                        <?php echo e(\Illuminate\Support\Str::limit($product->description, 100, '...')); ?>
+                        <?php echo e($product->ShortDescription); ?>
 
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between">
                         <div class="grid-item-price">
-                            <?php echo e($product->price_format); ?>
-
+                            <strong><?php echo e($product->PriceFormat); ?></strong>
                         </div>
                         <div class="grid-item-price">
                             <?php echo e($product->product_status); ?>

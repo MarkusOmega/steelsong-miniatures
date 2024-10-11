@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row mt-5">
             <div class="card p-4">
-                <form method="POST" action="<?php echo e(route('products.store')); ?>">
+                <form method="POST" action="<?php echo e(route('products.store')); ?>" enctype="multipart/form-data">
                     <?php echo $__env->make('admin.products.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </form>
             </div>

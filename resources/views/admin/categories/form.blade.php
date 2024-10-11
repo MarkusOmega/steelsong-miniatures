@@ -1,7 +1,7 @@
 @csrf
 <div class="mb-3">
     <label class="form-label" for="name">Name </label>
-    <input class="form-control" type="text" name="name" id="name" value="{{ old('name', (!empty($product->name) ? $product->name : null))}}">
+    <input class="form-control" type="text" name="name" id="name" value="{{ (!empty($category->name) ? $category->name : null)}}">
     @error('name')
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror

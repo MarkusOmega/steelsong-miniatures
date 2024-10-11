@@ -11,7 +11,7 @@ return [
     'categories.edit' => 'Categorie :id Bewerken',
     'categories.create' => 'Categorie aanmaken',
 
-    'lores' => 'Lores',
-    'lores.edit' => 'Lore item :id Bewerken',
-    'lores.create' => 'Lore item aanmaken',
+    'Contents' => 'Contents',
+    'Contents.edit' => 'Content item :id Bewerken',
+    'Contents.create' => 'Content item aanmaken',
 ];
