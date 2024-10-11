@@ -13,12 +13,25 @@
 
      <?php $__env->endSlot(); ?>
     
-    <?php if(!empty($banner)): ?>
-        <div class="banner-large">
-            <?php echo e($banner->name); ?>
-
-        </div>
-    <?php endif; ?>
+    <?php if (isset($component)) { $__componentOriginalff9615640ecc9fe720b9f7641382872b = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalff9615640ecc9fe720b9f7641382872b = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.banner','data' => ['banner' => $banner]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('banner'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['banner' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($banner)]); ?> <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalff9615640ecc9fe720b9f7641382872b)): ?>
+<?php $attributes = $__attributesOriginalff9615640ecc9fe720b9f7641382872b; ?>
+<?php unset($__attributesOriginalff9615640ecc9fe720b9f7641382872b); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalff9615640ecc9fe720b9f7641382872b)): ?>
+<?php $component = $__componentOriginalff9615640ecc9fe720b9f7641382872b; ?>
+<?php unset($__componentOriginalff9615640ecc9fe720b9f7641382872b); ?>
+<?php endif; ?>
 
     <?php if (isset($component)) { $__componentOriginal31f45136a2389d31610eb2c1a32be5d9 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal31f45136a2389d31610eb2c1a32be5d9 = $attributes; } ?>

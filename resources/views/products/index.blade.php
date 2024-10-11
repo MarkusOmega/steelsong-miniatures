@@ -3,11 +3,7 @@
     {{ trans('general.shop') }}
     </x-slot:header>
     
-    @if(!empty($banner))
-        <div class="banner-large">
-            {{ $banner->name }}
-        </div>
-    @endif
+    <x-banner :banner="$banner"></x-banner>
 
     <x-product-filter :categories="$categories" :chosenCategory="$category"> </x-product-filter>
 

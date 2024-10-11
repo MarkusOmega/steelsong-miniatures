@@ -1,25 +1,15 @@
 <x-main-layout>
-    @if(!empty($banner))
-        <div class="banner-large">
-            {{ $banner->name }}
-        </div>
-    @endif
-    
+    <x-banner :banner="$banner"></x-banner>
+
     <div class="grid-1-2 p-0 mt-4">
-        <x-grid-item> </x-grid-item>
-        <x-grid-item> </x-grid-item>
-        <x-grid-item> </x-grid-item>
+        @foreach ($newsHiglights as $newsHiglight)
+            <x-grid-item :item="$newsHiglight"> </x-grid-item>
+        @endforeach
     </div>
 
     <div class="grid-3-3 p-0 mt-4">
-        <x-grid-item> </x-grid-item>
-        <x-grid-item> </x-grid-item>
-        <x-grid-item> </x-grid-item>
-        <x-grid-item> </x-grid-item>
-        <x-grid-item> </x-grid-item>
-        <x-grid-item> </x-grid-item>
-        <x-grid-item> </x-grid-item>
-        <x-grid-item> </x-grid-item>
-        <x-grid-item> </x-grid-item>
+        @foreach ($newsItems as $newsItem)
+            <x-grid-item :item="$newsItem"> </x-grid-item>
+        @endforeach
     </div>
 </x-main-layout>

@@ -9,7 +9,7 @@
                     <a class="menu-link" href="<?php echo e(route('product.frontendIndex')); ?>">Shop</a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="">Content</a>
+                    <a class="menu-link" href="">Lore</a>
                 </li>
                 <li class="menu-item">
                     <a class="menu-link" href="">News</a>
