@@ -11,7 +11,10 @@ return [
     'categories.edit' => 'Categorie :id Bewerken',
     'categories.create' => 'Categorie aanmaken',
 
-    'Contents' => 'Contents',
-    'Contents.edit' => 'Content item :id Bewerken',
-    'Contents.create' => 'Content item aanmaken',
+    'contents' => 'Contents',
+    'contents.edit' => 'Content item :id Bewerken',
+    'contents.create' => 'Content item aanmaken',
+
+    'news' => 'Nieuws',
+    'news.edit' => 'Nieuws :id bewerken'
 ];

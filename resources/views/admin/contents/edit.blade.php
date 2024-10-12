@@ -1,7 +1,7 @@
 <x-admin-layout>
     <div class="container">
         <div class="row mt-5">
-            <h2>{{ trans('general.edit content', ['id' => $content->id]) }}</h2>
+            <h2>{{ trans('general.contents.edit', ['id' => $content->id]) }}</h2>
         </div>
    </div>
 
@@ -10,7 +10,7 @@
             <div class="card p-4">
                 <form method="POST" action="{{ route('contents.update', ['content'=> $content]) }}" enctype="multipart/form-data">
                     @method('PUT')
-                    @include('admin.content.form')
+                    @include('admin.contents.form')
                 </form>
             </div>
         </div>

@@ -10,7 +10,7 @@
             @endif
 
             <div class="d-flex justify-content-between">
-                <h2>{{ trans('general.Contents') }}</h2>
+                <h2>{{ trans('general.contents') }}</h2>
                 <a href="{{ route('contents.create') }}" class="btn btn-primary"> Content item aanmaken</a>
             </div>
 

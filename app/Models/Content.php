@@ -13,6 +13,7 @@ class Content extends Model
     protected $fillable = [
         'name',
         'description',
+        'product_id',
     ];
 
     public function products(): BelongsToMany

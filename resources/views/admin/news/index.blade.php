@@ -10,7 +10,7 @@
             @endif
 
             <div class="d-flex justify-content-between">
-                <h2>{{ trans('general.News') }}</h2>
+                <h2>{{ trans('general.news') }}</h2>
                 <a href="{{ route('news.create') }}" class="btn btn-primary"> News item aanmaken</a>
             </div>
 

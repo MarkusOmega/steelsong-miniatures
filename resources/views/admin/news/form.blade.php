@@ -24,3 +24,10 @@
 <div class="buttons">
     <button class="btn btn-primary" type="submit">Save </button>
 </div>
+
+<script>
+      tinymce.init({
+        selector: '#description',
+        license_key: 'gpl|{{ config('tinymce.licenseKey')}}'
+      });
+</script>

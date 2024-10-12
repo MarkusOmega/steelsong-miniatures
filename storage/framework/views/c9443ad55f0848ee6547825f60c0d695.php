@@ -12,4 +12,4 @@
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<?php /**PATH C:\DEV\steelsong-miniatures\resources\views/layouts/admin/head.blade.php ENDPATH**/ ?>
+<script src="https://cdn.tiny.cloud/1/<?php echo e(config('tinymce.licenseKey')); ?>/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script><?php /**PATH C:\DEV\steelsong-miniatures\resources\views/layouts/admin/head.blade.php ENDPATH**/ ?>

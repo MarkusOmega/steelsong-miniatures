@@ -1,7 +1,7 @@
 <x-admin-layout>
     <div class="container">
         <div class="row mt-5">
-            <h2>{{ trans('general.edit news', ['id' => $news->id]) }}</h2>
+            <h2>{{ trans('general.news.edit', ['id' => $news->id]) }}</h2>
         </div>
    </div>
 
