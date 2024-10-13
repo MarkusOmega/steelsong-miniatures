@@ -42,10 +42,14 @@ nav.container .header-left .logo img, nav.container-fluid .header-left .logo img
 nav.container .menu, nav.container-fluid .menu {
   display: flex;
   flex-direction: row;
+  height: 100%;
   list-style-type: none;
+  margin: 0;
 }
 nav.container .menu li.menu-item, nav.container-fluid .menu li.menu-item {
   padding: 15px;
+  display: flex;
+  align-items: center;
 }
 nav.container .menu li.menu-item a.menu-link, nav.container-fluid .menu li.menu-item a.menu-link {
   text-decoration: none;
