@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsRequest;
+use App\Models\Category;
 use App\Models\News;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -77,5 +79,19 @@ class NewsController extends Controller
 
         return redirect()->route('news.index')
             ->with('success','News deleted successfully');
+    }
+
+
+    public function frontendIndex(Request $request)
+    {
+        $news = News::paginate(15);
+
+        $categories = Category::all();
+
+        $category = !empty($request->input('category')) ? $request->input('category') : '';
+
+        $banner = Setting::where('type', 'shop-banner')->first();
+
+        return view('news.index', compact('news', 'categories', 'category', 'banner'));
     }
 }

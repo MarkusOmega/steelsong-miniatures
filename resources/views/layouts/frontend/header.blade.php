@@ -12,7 +12,7 @@
                     <a class="menu-link" href="">Lore</a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="">News</a>
+                    <a class="menu-link" href="{{ route('news.frontendIndex') }}">News</a>
                 </li>
                 <li class="menu-item">
                     <a class="menu-link" href="">about us</a>

@@ -44,3 +44,7 @@ Route::get('/shop/product/{product}', [ProductController::class , 'show'])->name
 //CONTENT FRONTEND
 Route::get('/content', [ContentController::class, 'frontendIndex'])->name('content.frontendIndex');
 Route::get('/content/{content}', [ContentController::class, 'show'])->name('content.detail');
+
+// NEWS FRONTEND
+Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.detail');
+Route::get('/news', [NewsController::class, 'frontendIndex'])->name('news.frontendIndex');
