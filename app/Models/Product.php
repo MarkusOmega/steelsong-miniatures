@@ -35,7 +35,7 @@ class Product extends Model implements HasMedia
         );
     }
 
-    protected function discount(): Attribute
+    protected function discount_price(): Attribute
     {
         return Attribute::make(
             get: fn ($value) => $value / 100,
@@ -52,7 +52,16 @@ class Product extends Model implements HasMedia
 
     public function getDiscountFormatAttribute()
     {
-        $discountFormat =  Number::Currency($this->discount,'EUR' , 'nl');
+        $discountPriceCalc = $this->price - $this->discount_price;
+
+        if($discountPriceCalc < 0) {
+            $discountFormat =  null;
+        }
+
+        if($discountPriceCalc > 0) {
+            $discountFormat =  Number::Currency($discountPriceCalc,'EUR' , 'nl');
+        }
+        
 
         return $discountFormat;
     }

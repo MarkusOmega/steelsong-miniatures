@@ -28,7 +28,7 @@
                 <p>{{ $product->description }} </p>
             </div>
             <div class="price mt-2">
-                <strong>{{ $product->PriceFormat }}</strong>
+                <x-product-price :product="$product"></x-product-price>
             </div>
             <div class="choices">
 

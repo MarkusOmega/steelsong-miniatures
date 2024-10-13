@@ -22,7 +22,7 @@
                     <hr>
                     <div class="d-flex justify-content-between">
                         <div class="grid-item-price">
-                            <strong>{{ $product->PriceFormat }}</strong>
+                            <x-product-price :product="$product"></x-product-price>
                         </div>
                         <div class="grid-item-price">
                             {{ $product->product_status }}
