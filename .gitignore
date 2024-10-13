@@ -22,3 +22,4 @@ yarn-error.log
 /storage/logs
 supervisord.log
 docker-compose.yml
+/storage/logs
