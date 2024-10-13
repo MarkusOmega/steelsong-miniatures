@@ -64,6 +64,9 @@ nav.container, nav.container-fluid{
                 &:hover {
                     color: $primary-color;
                 }
+                &.active{
+                    color: lighten($primary-color,10%) ;
+                }
             }
         }
     }

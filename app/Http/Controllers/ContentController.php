@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContentRequest;
+use App\Models\Category;
 use App\Models\Content;
 use App\Models\Product;
+use App\Models\Setting;
+use Illuminate\Http\Request;
 
 class ContentController extends Controller
 {
@@ -55,5 +58,18 @@ class ContentController extends Controller
 
         return redirect()->route('contents.index')
             ->with('success','Content deleted successfully');
+    }
+
+    public function frontendIndex(Request $request)
+    {
+        $contents = Content::paginate(15);
+
+        $categories = Category::all();
+
+        $category = !empty($request->input('category')) ? $request->input('category') : '';
+
+        $banner = Setting::where('type', 'shop-banner')->first();
+
+        return view('content.index', compact('contents', 'categories', 'category', 'banner'));
     }
 }

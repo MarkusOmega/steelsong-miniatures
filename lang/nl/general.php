@@ -16,5 +16,7 @@ return [
     'contents.create' => 'Content item aanmaken',
 
     'news' => 'Nieuws',
-    'news.edit' => 'Nieuws :id bewerken'
+    'news.edit' => 'Nieuws :id bewerken',
+
+    'lore' => 'Lore',
 ];

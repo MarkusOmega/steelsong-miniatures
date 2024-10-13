@@ -6,13 +6,13 @@
             </a>
             <ul class="menu">
                 <li class="menu-item">
-                    <a class="menu-link" href="{{ route('product.frontendIndex') }}">Shop</a>
+                    <a class="menu-link {{ ( Route::currentRouteName() == 'product.frontendIndex') ? 'active' : '' }}" href="{{ route('product.frontendIndex') }}">Shop</a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="">Lore</a>
+                <a class="menu-link {{ ( Route::currentRouteName() == 'content.frontendIndex') ? 'active' : '' }}"  href="{{ route('content.frontendIndex') }}">Lore</a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="{{ route('news.frontendIndex') }}">News</a>
+                <a class="menu-link {{ ( Route::currentRouteName() == 'news.frontendIndex') ? 'active' : '' }}"  href="{{ route('news.frontendIndex') }}">News</a>
                 </li>
                 <li class="menu-item">
                     <a class="menu-link" href="">about us</a>

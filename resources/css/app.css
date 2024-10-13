@@ -55,13 +55,17 @@ nav.container .menu li.menu-item a.menu-link, nav.container-fluid .menu li.menu-
   color: black;
 }
 nav.container .menu li.menu-item a.menu-link:hover, nav.container-fluid .menu li.menu-item a.menu-link:hover {
-  color: #035f6a;
+  color: #03606a;
+}
+nav.container .menu li.menu-item a.menu-link.active, nav.container-fluid .menu li.menu-item a.menu-link.active {
+  color: #048d9c;
 }
 
 .main-container {
   display: flex;
   padding: 20px;
-  background: rgb(251, 251, 251);
+  background: url("/images/bg-tile-01.png");
+  background-size: 80px;
   min-height: 90vh;
 }
 .main-container .inner {
@@ -73,7 +77,7 @@ nav.container .menu li.menu-item a.menu-link:hover, nav.container-fluid .menu li
 .banner-large {
   width: 100%;
   height: 150px;
-  background-color: #f3f3f3;
+  background-color: #ffffff;
   display: flex;
   align-items: end;
   padding: 20px;
@@ -91,7 +95,7 @@ nav.container .menu li.menu-item a.menu-link:hover, nav.container-fluid .menu li
   margin-top: 20px;
 }
 .grid-1-2 .grid-item {
-  background-color: #035f6a;
+  background-color: rgba(3, 96, 106, 0.6274509804);
   min-height: 50px;
 }
 .grid-1-2 .grid-item:nth-child(1) {
@@ -111,7 +115,7 @@ nav.container .menu li.menu-item a.menu-link:hover, nav.container-fluid .menu li
 }
 .grid-3-3 .grid-item {
   min-height: 100px;
-  background-color: #f3f3f3;
+  background: linear-gradient(rgba(200, 200, 200, 0.2) 0%, rgba(150, 150, 150, 0.2) 100%);
 }
 
 .grid-item {
