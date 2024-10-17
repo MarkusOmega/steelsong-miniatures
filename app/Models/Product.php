@@ -45,7 +45,9 @@ class Product extends Model implements HasMedia
 
     public function getPriceFormatAttribute()
     {
-        $priceFormat =  Number::Currency($this->price,'EUR' , 'nl');
+        $priceFormat =  $this->price;
+       // $priceFormat =  Number::Currency($this->price,'EUR' , 'nl');
+
 
         return $priceFormat;
     }
@@ -59,9 +61,10 @@ class Product extends Model implements HasMedia
         }
 
         if($discountPriceCalc > 0) {
-            $discountFormat =  Number::Currency($discountPriceCalc,'EUR' , 'nl');
+            //$discountFormat =  Number::Currency($discountPriceCalc,'EUR' , 'nl');
+            $discountFormat =  $discountPriceCalc;
         }
-        
+
 
         return $discountFormat;
     }

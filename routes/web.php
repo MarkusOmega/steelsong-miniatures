@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\MediaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])
@@ -27,6 +28,9 @@ Route::prefix('admin')->middleware('is-admin')->group(function () {
 
     // News
     Route::resource('news',NewsController::class);
+
+    // MEDIA
+    Route::post('{media}/delete', [MediaController::class, 'destroy'])->name('media.destroy');
 });
 
 Route::middleware('auth')->group(function () {
