@@ -7,12 +7,14 @@
 
     <div class="row mt-4">
         <div class="col-6">
-            <div class="image">
-            @if($product->hasMedia())
-                <img src="{{ $product->getFirstMedia()->getUrl() }}" alt="product image">
-            @else
-            <img src="{{url('/images/image-placeholder.png')}}" alt="product placeholder">
-            @endif
+            <div class="image-gallery">
+                @if($product->hasMedia())
+                    @foreach($product->getMedia() as $media)
+                        <img src="{{ $media->getUrl() }}" alt="product image">
+                    @endforeach
+                @else
+                    <img src="{{url('/images/image-placeholder.png')}}" alt="product placeholder">
+                @endif
             </div>
         </div>
         <div class="col-6">

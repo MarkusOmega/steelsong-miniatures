@@ -178,4 +178,21 @@ footer .copyright {
 }
 .image img {
   width: 100%;
+}
+
+.image-gallery {
+  display: flex;
+  overflow: hidden;
+}
+.image-gallery img {
+  width: 100%;
+}
+
+.grid-item-image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.grid-item-image img {
+  max-width: 400px;
+  width: 100%;
 }/*# sourceMappingURL=app.css.map */

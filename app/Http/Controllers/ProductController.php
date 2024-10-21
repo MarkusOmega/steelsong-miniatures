@@ -100,8 +100,8 @@ class ProductController extends Controller
 
             DB::commit();
     
-            return redirect()->route('products.index')
-            ->with('success','Product updates successfully.');
+            return redirect()->back()
+            ->with('success','Product update successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
 

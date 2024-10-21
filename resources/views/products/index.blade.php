@@ -12,10 +12,17 @@
             <a href="{{ route('product.detail', $product) }}" class="grid-item-product">
                 <div class="grid-item-title"> 
                     <h3>
-                    {{ $product->name }} 
+                        {{ $product->name }} 
                     </h3>    
                 </div>
                 <div class="grid-item-content"> 
+                    <div class="grid-item-image">
+                    @if($product->hasMedia())  
+                        <img src="{{ $product->getFirstMediaUrl() }}" alt="">
+                    @else
+                        <img src="{{url('/images/image-placeholder.png')}}" alt="product placeholder">
+                    @endif
+                    </div>
                     <div class="grid-item-description">
                         {{ $product->ShortDescription }}
                     </div>

@@ -202,3 +202,19 @@ footer{
     }
 }
 
+.image-gallery{
+    display: flex;
+    overflow:hidden;
+    img{
+        width: 100%;
+    }
+}
+
+.grid-item-image{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    img{
+        max-width: 400px;
+        width: 100%;
+    }
+}

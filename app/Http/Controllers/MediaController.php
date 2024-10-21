@@ -18,7 +18,7 @@ class MediaController extends Controller
             return response()->json(['message' => "image deleted"]);
         } catch (\Exception $e) {
             Log::error(
-                'Product could not be saved',
+                'Product could not be deleted',
                 [
                     'error' => $e,
                 ]
